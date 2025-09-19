@@ -1,0 +1,21 @@
+CREATE OR REPLACE PROCEDURE find_prime_numbers(n in NUMBER) IS 
+BEGIN
+	IF N<1 THEN
+		DBMS_OUTPUT.PUT_LINE('Enter a positive number: ');
+		RETURN;
+	END IF;
+
+	FOR i IN 2..n LOOP
+		FOR j IN 2..i-1 LOOP
+			IF MOD(i,j) = 0 THEN
+				GOTO next_number;
+			END IF;
+		END LOOP;
+		DBMS_OUTPUT.PUT_LINE(i || ' is prime');
+		<<next_number>>
+		NULL;
+	END LOOP;
+END find_prime_numbers;
+/
+EXEC find_prime_numbers(20);
+-- 👆 prime numbers
