@@ -1,0 +1,72 @@
+
+
+
+-- CREATE TABLE Department114 (
+--     DeptId     NUMBER PRIMARY KEY,
+--     DeptName   VARCHAR2(50),
+--     DeptLoc    VARCHAR2(50)
+-- );
+
+-- CREATE TABLE Employee114 (
+--     EmpId      NUMBER PRIMARY KEY,
+--     EmpName    VARCHAR2(50),
+--     DoB        DATE,
+--     DoJ        DATE,
+--     Salary     NUMBER(10,2),
+--     DeptId     NUMBER,
+--     CONSTRAINT fk_dept FOREIGN KEY (DeptId) REFERENCES Department114(DeptId)
+-- );
+
+-- CREATE TABLE Product114 (
+--     ProdId     NUMBER PRIMARY KEY,
+--     ProdName   VARCHAR2(50),
+--     Price      NUMBER(10,2)
+-- );
+
+-- CREATE TABLE Sales114 (
+--     SaleId     NUMBER PRIMARY KEY,
+--     EmpId      NUMBER,
+--     ProdId     NUMBER,
+--     Quantity   NUMBER,
+--     SaleDate   DATE,
+--     CONSTRAINT fk_emp FOREIGN KEY (EmpId) REFERENCES Employee114(EmpId),
+--     CONSTRAINT fk_prod FOREIGN KEY (ProdId) REFERENCES Product114(ProdId)
+-- );
+
+
+-- INSERT INTO Department114 VALUES (1, 'IT', 'Mumbai');
+-- INSERT INTO Department114 VALUES (2, 'HR', 'Delhi');
+-- INSERT INTO Department114 VALUES (3, 'Sales', 'Bangalore');
+
+-- INSERT INTO Employee114 VALUES (101, 'Aryan', TO_DATE('2000-05-15','YYYY-MM-DD'), TO_DATE('2020-01-10','YYYY-MM-DD'), 45000, 1);
+-- INSERT INTO Employee114 VALUES (102, 'Riya', TO_DATE('1999-11-20','YYYY-MM-DD'), TO_DATE('2021-06-15','YYYY-MM-DD'), 38000, 2);
+-- INSERT INTO Employee114 VALUES (103, 'Karan', TO_DATE('2001-01-12','YYYY-MM-DD'), TO_DATE('2019-03-05','YYYY-MM-DD'), 50000, 3);
+
+-- INSERT INTO Product114 VALUES (201, 'Laptop', 55000);
+-- INSERT INTO Product114 VALUES (202, 'Mouse', 500);
+-- INSERT INTO Product114 VALUES (203, 'Keyboard', 1500);
+
+-- INSERT INTO Sales114 VALUES (301, 101, 201, 1, TO_DATE('2023-01-12','YYYY-MM-DD'));
+-- INSERT INTO Sales114 VALUES (302, 102, 202, 2, TO_DATE('2023-03-15','YYYY-MM-DD'));
+-- INSERT INTO Sales114 VALUES (303, 103, 203, 3, TO_DATE('2022-12-20','YYYY-MM-DD'));
+
+
+-- CREATE OR REPLACE VIEW EmpDept114 AS
+-- SELECT e.EmpId, e.EmpName, e.DoB, e.DoJ, e.Salary, d.DeptId, d.DeptName, d.DeptLoc
+-- FROM Employee114 e
+-- JOIN Department114 d ON e.DeptId = d.DeptId;
+
+
+
+-- SELECT * FROM Department114;
+-- SELECT * FROM Employee114;
+-- SELECT * FROM Product114;
+-- SELECT * FROM Sales114;
+
+
+-- SELECT * FROM EmpDept114;
+
+
+-- SELECT * 
+-- FROM EmpDept114
+-- WHERE MONTHS_BETWEEN(SYSDATE, DoJ) >= 24;
