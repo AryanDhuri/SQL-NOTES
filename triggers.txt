@@ -1,0 +1,27 @@
+-- CREATE TABLE books (
+--     book_id INT PRIMARY KEY,
+--     book_name VARCHAR(50)
+-- );
+
+-- CREATE TABLE book_log (
+--     log_id INT PRIMARY KEY,
+--     message VARCHAR(50)
+-- );
+
+-- CREATE OR REPLACE TRIGGER book_added
+-- AFTER INSERT ON books
+-- FOR EACH ROW
+-- BEGIN
+--     INSERT INTO book_log (log_id, message)
+--     VALUES (:NEW.book_id, 'Book added');
+-- END;
+-- /
+
+-- Insert a book
+INSERT INTO books (book_id, book_name) VALUES (1, 'Harry Potter');
+
+-- View books table
+SELECT * FROM books;
+
+-- View book_log table
+SELECT * FROM book_log;
