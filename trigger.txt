@@ -17,3 +17,27 @@
 -- 	insert into OLdEmployee (EmpId , EmpName , EmpSalary)
 -- 	values (Old.EmpId , Old.EmpName,Old.EmpSalary)
 -- end;
+-- CREATE TRIGGER preventdelete
+-- before delete on employee
+-- declare 
+--     v_count number;
+-- FOR EACH ROW
+-- begin
+-- 	SELECT COUNT(*) into v_count from employee
+--     IF v_count > 2 then
+--     	DBMS.OUTPUT.PUT_LINE("cnnot delete more than 2 rows");
+--     	ROLLBACK;
+-- 	END IF;
+-- end;
+-- /
+
+-- CREATE TRIGGER preventinsert
+-- before insert on employee
+-- FOR EACH ROW
+-- begin
+--     IF  EmpSalary > 67000 then
+--     	DBMS.OUTPUT.PUT_LINE("cannot be over $67000");
+--     	ROLLBACK;
+-- 	END IF;
+-- end;
+-- /
