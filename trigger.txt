@@ -1,0 +1,19 @@
+-- create table employee(
+--     EmpID number,
+--     EmpName varchar(25),
+--     EmpSalary number
+-- );
+
+-- create table OldEmployee(
+--     EmpID number,
+--     EmpName varchar(25),
+--     EmpSalary number
+-- );
+
+-- CREATE TRIGGER prevent_update
+-- after delete on employee
+-- for each row 
+-- begin
+-- 	insert into OLdEmployee (EmpId , EmpName , EmpSalary)
+-- 	values (Old.EmpId , Old.EmpName,Old.EmpSalary)
+-- end;
